@@ -50,6 +50,8 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.biênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.làmMảnhBiênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phépToánHìnhTháiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dilationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,7 +99,8 @@
             this.phátHiệnBiênToolStripMenuItem,
             this.nhânChậpToolStripMenuItem,
             this.biểuĐồHistogramToolStripMenuItem,
-            this.biênToolStripMenuItem});
+            this.biênToolStripMenuItem,
+            this.phépToánHìnhTháiToolStripMenuItem});
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
             this.toolToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
             this.toolToolStripMenuItem.Text = "Tool";
@@ -215,6 +218,21 @@
             this.làmMảnhBiênToolStripMenuItem.Text = "làm mảnh biên";
             this.làmMảnhBiênToolStripMenuItem.Click += new System.EventHandler(this.làmMảnhBiênToolStripMenuItem_Click);
             // 
+            // phépToánHìnhTháiToolStripMenuItem
+            // 
+            this.phépToánHìnhTháiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dilationToolStripMenuItem});
+            this.phépToánHìnhTháiToolStripMenuItem.Name = "phépToánHìnhTháiToolStripMenuItem";
+            this.phépToánHìnhTháiToolStripMenuItem.Size = new System.Drawing.Size(273, 34);
+            this.phépToánHìnhTháiToolStripMenuItem.Text = "Phép toán hình thái ";
+            // 
+            // dilationToolStripMenuItem
+            // 
+            this.dilationToolStripMenuItem.Name = "dilationToolStripMenuItem";
+            this.dilationToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.dilationToolStripMenuItem.Text = "Dilation";
+            this.dilationToolStripMenuItem.Click += new System.EventHandler(this.dilationToolStripMenuItem_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -259,5 +277,7 @@
         private System.Windows.Forms.ToolStripMenuItem prewittToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem biênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem làmMảnhBiênToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phépToánHìnhTháiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dilationToolStripMenuItem;
     }
 }

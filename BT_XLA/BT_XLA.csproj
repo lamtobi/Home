@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dilation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dilation.Designer.cs">
+      <DependentUpon>Dilation.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoSang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     <Compile Include="TrungVi.Designer.cs">
       <DependentUpon>TrungVi.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dilation.resx">
+      <DependentUpon>Dilation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoSang.resx">
       <DependentUpon>DoSang.cs</DependentUpon>
     </EmbeddedResource>

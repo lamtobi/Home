@@ -25,5 +25,10 @@ namespace BT_XLA
                 MessageBox.Show("Không thể hiển thị ảnh");
             }
         }
+
+        private void OpenFile_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
