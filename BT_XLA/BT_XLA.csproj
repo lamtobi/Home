@@ -61,6 +61,12 @@
     <Compile Include="DoSang.Designer.cs">
       <DependentUpon>DoSang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Erosion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Erosion.Designer.cs">
+      <DependentUpon>Erosion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gradien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DoSang.resx">
       <DependentUpon>DoSang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Erosion.resx">
+      <DependentUpon>Erosion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gradien.resx">
       <DependentUpon>Gradien.cs</DependentUpon>

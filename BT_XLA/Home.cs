@@ -115,5 +115,12 @@ namespace BT_XLA
             pr.MdiParent = this;
             pr.Show();
         }
+
+        private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Erosion pr = new Erosion(openFileDialog.FileName);
+            pr.MdiParent = this;
+            pr.Show();
+        }
     }
 }
