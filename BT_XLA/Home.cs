@@ -101,5 +101,12 @@ namespace BT_XLA
             pr.MdiParent = this;
             pr.Show();
         }
+
+        private void làmMảnhBiênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LammanhBien pr = new LammanhBien(openFileDialog.FileName);
+            pr.MdiParent = this;
+            pr.Show();
+        }
     }
 }

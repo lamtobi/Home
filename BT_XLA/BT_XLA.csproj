@@ -67,6 +67,12 @@
     <Compile Include="Histogram.Designer.cs">
       <DependentUpon>Histogram.cs</DependentUpon>
     </Compile>
+    <Compile Include="LammanhBien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LammanhBien.Designer.cs">
+      <DependentUpon>LammanhBien.cs</DependentUpon>
+    </Compile>
     <Compile Include="laplace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LammanhBien.resx">
+      <DependentUpon>LammanhBien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="laplace.resx">
       <DependentUpon>laplace.cs</DependentUpon>
