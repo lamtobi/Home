@@ -33,7 +33,8 @@ namespace BT_XLA
                 MessageBox.Show("Không thể hiển thị ảnh");
             }
         }
-        private void Gradien_Load(object sender, EventArgs e)
+
+        private void btn_run_Click(object sender, EventArgs e)
         {
             Bitmap result = new Bitmap(pic_gra.Width, pic_gra.Height);
 
@@ -51,7 +52,7 @@ namespace BT_XLA
             };
 
             // Ngưỡng để phân loại cạnh
-            int threshold = 50;
+            Decimal threshold = nm_nguong.Value;
 
             for (int y = 1; y < _imgtruoc.Height - 1; y++)
             {
@@ -84,6 +85,21 @@ namespace BT_XLA
             }
 
             pic_gra.Image = result;
+        }
+
+        private void nm_nguong_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Gradien_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

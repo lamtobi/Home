@@ -57,8 +57,11 @@ namespace BT_XLA
                     else if (color1.R + c < 0)
                         color2 = Color.FromArgb(0, 0, 0);
                     else
-                        color2 = Color.FromArgb(color1.R + c, color1.R + c, color1.R + c);
-                    
+                        color2 = Color.FromArgb(
+    Math.Min(255, Math.Max(0, color1.R + c)),
+    Math.Min(255, Math.Max(0, color1.G + c)),
+    Math.Min(255, Math.Max(0, color1.B + c)));
+
                     _imgsau.SetPixel(x, y, color2);
                 }
             pb_dosang.Image = _imgsau;

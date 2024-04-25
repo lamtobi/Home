@@ -39,7 +39,7 @@ namespace BT_XLA
             
         }
 
-        private void laplace_Load(object sender, EventArgs e)
+        private void btn_run_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem PictureBox có ảnh không
             if (pic_lap.Image == null)
@@ -62,7 +62,7 @@ namespace BT_XLA
                 { -1, -1, -1 }
             };
 
-            int threshold = 50; // Ngưỡng để phân loại cạnh
+            Decimal threshold = nm_nguong.Value; // Ngưỡng để phân loại cạnh
 
             for (int y = 1; y < originalImage.Height - 1; y++)
             {
@@ -89,6 +89,11 @@ namespace BT_XLA
 
             // Hiển thị ảnh đã được tách biên lên PictureBox
             pic_lap.Image = edgeImage;
+        }
+
+        private void laplace_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

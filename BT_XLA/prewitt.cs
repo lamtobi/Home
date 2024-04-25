@@ -34,7 +34,8 @@ namespace BT_XLA
                 MessageBox.Show("Không thể hiển thị ảnh");
             }
         }
-        private void prewitt_Load(object sender, EventArgs e)
+
+        private void btn_run_Click(object sender, EventArgs e)
         {
             // Kiểm tra xem PictureBox có ảnh không
             if (pic_pre.Image == null)
@@ -49,6 +50,8 @@ namespace BT_XLA
             // Tạo ảnh mới để lưu kết quả tách biên
             Bitmap edgeImage = new Bitmap(originalImage.Width, originalImage.Height);
 
+            Decimal threshold = nm_nguong.Value;
+
             // Áp dụng Prewitt Operator để phát hiện cạnh
             for (int y = 1; y < originalImage.Height - 1; y++)
             {
@@ -62,17 +65,39 @@ namespace BT_XLA
 
                     int gradient = (int)Math.Sqrt(gx * gx + gy * gy);
 
-                    if (gradient > 255)
-                        gradient = 255;
-                    else if (gradient < 0)
-                        gradient = 0;
+                    /* if (gradient > 255)
+                         gradient = 255;
+                     else if (gradient < 0)
+                         gradient = 0;
 
-                    edgeImage.SetPixel(x, y, Color.FromArgb(gradient, gradient, gradient));
+                     edgeImage.SetPixel(x, y, Color.FromArgb(gradient, gradient, gradient));*/
+
+                    // Kiểm tra ngưỡng để phân loại cạnh
+                    if (gradient > threshold)
+                        edgeImage.SetPixel(x, y, Color.White); // Đánh dấu là cạnh
+                    else
+                        edgeImage.SetPixel(x, y, Color.Black); // Không phải cạnh
+
                 }
             }
 
             // Hiển thị ảnh đã được tách biên lên PictureBox
             pic_pre.Image = edgeImage;
+        }
+
+        private void nm_nguong_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prewitt_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }
