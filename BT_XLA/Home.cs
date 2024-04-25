@@ -122,5 +122,12 @@ namespace BT_XLA
             pr.MdiParent = this;
             pr.Show();
         }
+
+        private void openingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Opening pr = new Opening(openFileDialog.FileName);
+            pr.MdiParent = this;
+            pr.Show();
+        }
     }
 }

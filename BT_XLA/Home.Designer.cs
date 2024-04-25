@@ -50,9 +50,10 @@
             this.làmMảnhBiênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phépToánHìnhTháiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dilationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -223,7 +224,8 @@
             // 
             this.phépToánHìnhTháiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dilationToolStripMenuItem,
-            this.erosionToolStripMenuItem});
+            this.erosionToolStripMenuItem,
+            this.openingToolStripMenuItem});
             this.phépToánHìnhTháiToolStripMenuItem.Name = "phépToánHìnhTháiToolStripMenuItem";
             this.phépToánHìnhTháiToolStripMenuItem.Size = new System.Drawing.Size(273, 34);
             this.phépToánHìnhTháiToolStripMenuItem.Text = "Phép toán hình thái ";
@@ -241,6 +243,13 @@
             this.erosionToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.erosionToolStripMenuItem.Text = "Erosion";
             this.erosionToolStripMenuItem.Click += new System.EventHandler(this.erosionToolStripMenuItem_Click);
+            // 
+            // openingToolStripMenuItem
+            // 
+            this.openingToolStripMenuItem.Name = "openingToolStripMenuItem";
+            this.openingToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.openingToolStripMenuItem.Text = "Opening";
+            this.openingToolStripMenuItem.Click += new System.EventHandler(this.openingToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -289,5 +298,6 @@
         private System.Windows.Forms.ToolStripMenuItem phépToánHìnhTháiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dilationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem erosionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openingToolStripMenuItem;
     }
 }
