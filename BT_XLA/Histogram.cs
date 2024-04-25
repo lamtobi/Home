@@ -10,7 +10,9 @@ namespace BT_XLA
 {
     public partial class Histogram : Form
     {
-        
+        private Bitmap originalImage;
+        private int[] histogram;
+
 
         public Histogram(string img)
         {
@@ -50,70 +52,62 @@ namespace BT_XLA
             return _imgsau;
         }
 
-        public int indexOf(int hang, int cot, int stride)
+
+        private int[] CalculateHistogram(Bitmap image)
         {
-            return hang * stride + cot * 3;
-        }
-        unsafe
-        public Bitmap Vehistogram(Bitmap img)
-        {
-            Bitmap histogram = new Bitmap(256,256,PixelFormat.Format24bppRgb);
-            BitmapData data = img.LockBits(new Rectangle(0, 0, histogram.Width, histogram.Height), ImageLockMode.ReadWrite, img.PixelFormat);
-            byte* p = (byte*)data.Scan0;
-            int offset = data.Stride - img.Width * 3;
+            int[] histogram = new int[256];
 
-            int[] count = new int[256];
-            int max = 0;
-            for(int hang = 0; hang < img.Width; hang++)
+            // Tính toán histogram của hình ảnh
+            for (int y = 0; y < image.Height; y++)
             {
-                for(int cot = 0; cot < img.Height; cot++)
+                for (int x = 0; x < image.Width; x++)
                 {
-                    count[p[0]]++;
-                    if (count[p[0]] > max)
-                    {
-                        max = count[p[0]];
-                    }
-                    p += 3;
-                }
-                p += offset;
-            }
-            img.UnlockBits(data);
-
-            for(int i = 0; i < 256; i++)
-            {
-                count[i] = (int)(count[i] * (histogram.Height - 1) * 1f / max * 1f);
-            }
-
-            data = histogram.LockBits(new Rectangle(0,0,histogram.Width, histogram.Height),ImageLockMode.ReadWrite, histogram.PixelFormat);
-            p = (byte*)data.Scan0;
-            offset = data.Stride - histogram.Width * 3;
-
-            for(int cot = 0; cot < histogram.Width; cot++)
-            {
-                for(int hang = 0; hang < histogram.Height; hang++)
-                {
-                    byte value = 255;
-                    if(hang <= (histogram.Height - count[cot]))
-                    {
-                        value = 255;
-                    }
-                    else
-                    {
-                        value = 0;
-                    }
-                    p[indexOf(hang, cot, data.Stride)] = value;
-                    p[indexOf(hang, cot, data.Stride) + 1] = value;
-                    p[indexOf(hang, cot, data.Stride) + 2] = value;
+                    Color pixel = image.GetPixel(x, y);
+                    int grayValue = (int)(0.2989 * pixel.R + 0.5870 * pixel.G + 0.1140 * pixel.B); // Chuyển đổi sang ảnh grayscale
+                    histogram[grayValue]++;
                 }
             }
-            histogram.UnlockBits(data);
+
             return histogram;
         }
 
+        private void DrawHistogram()
+        {
+            // Tạo một Bitmap để vẽ biểu đồ
+            Bitmap histogramBitmap = new Bitmap(256, 200);
+
+            // Tạo một Graphics từ Bitmap
+            using (Graphics g = Graphics.FromImage(histogramBitmap))
+            {
+                // Xóa nền của biểu đồ
+                g.Clear(Color.White);
+
+                // Vẽ các cột của biểu đồ histogram
+                Pen pen = new Pen(Color.Black);
+                for (int i = 0; i < histogram.Length; i++)
+                {
+                    int height = histogram[i];
+                    g.DrawLine(pen, i, 199, i, 199 - height); // Vẽ đường thẳng từ (i, 199) đến (i, 199 - height)
+                }
+            }
+
+            // Hiển thị biểu đồ histogram lên PictureBox
+            pic_histogram.Image = histogramBitmap;
+        }
+
+
+
         private void btn_vehistogram_Click(object sender, EventArgs e)
         {
-            Bitmap h = Vehistogram(_imgsau);
-            pic_histogram.Image = h;
+            histogram = CalculateHistogram(_imgtruoc);
+
+            pic_histogram.Image = _imgsau;
+            DrawHistogram();
+        }
+
+        private void Histogram_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btn_xam_Click(object sender, EventArgs e)

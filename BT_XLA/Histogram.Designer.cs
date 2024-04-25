@@ -38,17 +38,19 @@
             // 
             // pic_xam
             // 
-            this.pic_xam.Location = new System.Drawing.Point(12, 12);
+            this.pic_xam.Location = new System.Drawing.Point(18, 18);
+            this.pic_xam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pic_xam.Name = "pic_xam";
-            this.pic_xam.Size = new System.Drawing.Size(522, 329);
+            this.pic_xam.Size = new System.Drawing.Size(783, 506);
             this.pic_xam.TabIndex = 0;
             this.pic_xam.TabStop = false;
             // 
             // btn_xam
             // 
-            this.btn_xam.Location = new System.Drawing.Point(196, 367);
+            this.btn_xam.Location = new System.Drawing.Point(294, 565);
+            this.btn_xam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_xam.Name = "btn_xam";
-            this.btn_xam.Size = new System.Drawing.Size(75, 23);
+            this.btn_xam.Size = new System.Drawing.Size(112, 35);
             this.btn_xam.TabIndex = 1;
             this.btn_xam.Text = "Chuyển Xám";
             this.btn_xam.UseVisualStyleBackColor = true;
@@ -57,18 +59,19 @@
             // pic_histogram
             // 
             this.pic_histogram.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pic_histogram.Location = new System.Drawing.Point(591, 12);
+            this.pic_histogram.Location = new System.Drawing.Point(886, 18);
+            this.pic_histogram.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pic_histogram.Name = "pic_histogram";
-            this.pic_histogram.Size = new System.Drawing.Size(522, 329);
-            this.pic_histogram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_histogram.Size = new System.Drawing.Size(783, 506);
             this.pic_histogram.TabIndex = 2;
             this.pic_histogram.TabStop = false;
             // 
             // btn_vehistogram
             // 
-            this.btn_vehistogram.Location = new System.Drawing.Point(824, 367);
+            this.btn_vehistogram.Location = new System.Drawing.Point(1236, 565);
+            this.btn_vehistogram.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_vehistogram.Name = "btn_vehistogram";
-            this.btn_vehistogram.Size = new System.Drawing.Size(75, 23);
+            this.btn_vehistogram.Size = new System.Drawing.Size(112, 35);
             this.btn_vehistogram.TabIndex = 3;
             this.btn_vehistogram.Text = "Vẽ";
             this.btn_vehistogram.UseVisualStyleBackColor = true;
@@ -76,15 +79,17 @@
             // 
             // Histogram
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 402);
+            this.ClientSize = new System.Drawing.Size(1712, 618);
             this.Controls.Add(this.btn_vehistogram);
             this.Controls.Add(this.pic_histogram);
             this.Controls.Add(this.btn_xam);
             this.Controls.Add(this.pic_xam);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Histogram";
             this.Text = "Histogram";
+            this.Load += new System.EventHandler(this.Histogram_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_xam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_histogram)).EndInit();
             this.ResumeLayout(false);
