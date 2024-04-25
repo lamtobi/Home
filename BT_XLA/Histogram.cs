@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
 using System.Web.UI.DataVisualization.Charting;
 using System.Windows.Forms;
 
@@ -73,6 +74,8 @@ namespace BT_XLA
 
         private void DrawHistogram()
         {
+            int[] histogram = CalculateHistogram(_imgsau);
+
             // Tạo một Bitmap để vẽ biểu đồ
             Bitmap histogramBitmap = new Bitmap(256, 200);
 
@@ -82,12 +85,20 @@ namespace BT_XLA
                 // Xóa nền của biểu đồ
                 g.Clear(Color.White);
 
+                // Tính toán chiều cao tối đa của cột histogram
+                int maxHeight = histogramBitmap.Height;
+
+                // Tính toán chiều rộng của từng cột
+                float columnWidth = (float)histogramBitmap.Width / 256;
+
+                // Tính toán tần suất tối đa trong histogram
+                int maxFrequency = histogram.Max();
+
                 // Vẽ các cột của biểu đồ histogram
-                Pen pen = new Pen(Color.Black);
-                for (int i = 0; i < histogram.Length; i++)
+                for (int i = 0; i < 256; i++)
                 {
-                    int height = histogram[i];
-                    g.DrawLine(pen, i, 199, i, 199 - height); // Vẽ đường thẳng từ (i, 199) đến (i, 199 - height)
+                    int columnHeight = (int)(((float)histogram[i] / maxFrequency) * maxHeight);
+                    g.FillRectangle(Brushes.Black, i * columnWidth, maxHeight - columnHeight, columnWidth, columnHeight);
                 }
             }
 

@@ -63,6 +63,7 @@
             this.pic_histogram.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pic_histogram.Name = "pic_histogram";
             this.pic_histogram.Size = new System.Drawing.Size(783, 506);
+            this.pic_histogram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_histogram.TabIndex = 2;
             this.pic_histogram.TabStop = false;
             // 
