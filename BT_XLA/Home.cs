@@ -37,7 +37,10 @@ namespace BT_XLA
 
         private void thủCôngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            TachNguong_ThuCong tach = new TachNguong_ThuCong(openFileDialog.FileName);
+            tach.MdiParent = this;
+            tach.Show();
+
         }
 
         private void tựĐộngToolStripMenuItem_Click(object sender, EventArgs e)
