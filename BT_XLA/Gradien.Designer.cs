@@ -28,19 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pic_gra = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_gra)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pic_gra
+            // 
+            this.pic_gra.Location = new System.Drawing.Point(22, 72);
+            this.pic_gra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pic_gra.Name = "pic_gra";
+            this.pic_gra.Size = new System.Drawing.Size(832, 461);
+            this.pic_gra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_gra.TabIndex = 3;
+            this.pic_gra.TabStop = false;
             // 
             // Gradien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 520);
+            this.ClientSize = new System.Drawing.Size(877, 604);
+            this.Controls.Add(this.pic_gra);
             this.Name = "Gradien";
             this.Text = "Gradien";
+            this.Load += new System.EventHandler(this.Gradien_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_gra)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox pic_gra;
     }
 }

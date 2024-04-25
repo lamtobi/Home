@@ -47,7 +47,9 @@ namespace BT_XLA
 
         private void gradianToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+          Gradien ga=new Gradien(openFileDialog.FileName);
+            ga.MdiParent = this;
+            ga.Show();
         }
 
         private void laplaceToolStripMenuItem_Click(object sender, EventArgs e)
