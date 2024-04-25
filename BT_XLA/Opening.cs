@@ -42,8 +42,16 @@ namespace BT_XLA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Bitmap openedImage = PerformOpening(_imgsau);
-            pcb_open.Image = openedImage;
+            int[,] mask =
+  {{ 0, 1, 0 },
+    { 1, 1, 1 },
+    { 0, 1, 0 }};
+
+            Bitmap img1 = Erosion(_imgtruoc, mask);
+            Bitmap img2 = Dilation(img1, mask);
+
+            pcb_open.Image = img2;
+            pcb_open.Refresh();
         }
 
         private void Opening_Load(object sender, EventArgs e)
@@ -51,136 +59,95 @@ namespace BT_XLA
 
         }
 
-        private Bitmap PerformOpening(Image originalImage)
+
+        public static Bitmap Dilation(Bitmap image, int[,] kernel)
         {
-            // Khởi tạo hình ảnh opened
-            Bitmap openedImage = new Bitmap(originalImage.Width, originalImage.Height);
+            int width = image.Width;
+            int height = image.Height;
 
-            // Gán màu trắng cho tất cả các pixel trong hình ảnh
-            for (int y = 0; y < originalImage.Height; y++)
+            Bitmap resultImage = new Bitmap(width, height);
+
+            for (int x = 0; x < width; x++)
             {
-                for (int x = 0; x < originalImage.Width; x++)
+                for (int y = 0; y < height; y++)
                 {
-                    openedImage.SetPixel(x, y, Color.White);
-                }
-            }
-
-            // Thực hiện erosion trước
-            Bitmap erodedImage = PerformErosion(originalImage);
-
-            // Sau đó, thực hiện dilation trên kết quả erosion
-            openedImage = PerformDilation(erodedImage);
-
-            return openedImage;
-        }
-
-        private Bitmap PerformErosion(Image originalImage)
-        {
-            // Khởi tạo hình ảnh erosion
-            Bitmap erodedImage = new Bitmap(originalImage.Width, originalImage.Height);
-
-            // Ma trận kết cấu (structuring element) cho erosion
-            int[,] structuringElement = {
-                { 1, 1, 1 },
-                { 1, 1, 1 },
-                { 1, 1, 1 }
-            };
-
-            // Lặp qua từng pixel trong hình ảnh gốc
-            for (int y = 0; y < originalImage.Height; y++)
-            {
-                for (int x = 0; x < originalImage.Width; x++)
-                {
-                    // Kiểm tra xem tất cả các pixel lân cận có giá trị trắng không
-                    bool allWhite = true;
-                    for (int i = -1; i <= 1; i++)
+                    if (image.GetPixel(x, y).ToArgb() == Color.Black.ToArgb())
                     {
-                        for (int j = -1; j <= 1; j++)
-                        {
-                            int newX = x + j;
-                            int newY = y + i;
-
-                            // Đảm bảo không vượt ra khỏi biên của hình ảnh
-                            if (newX >= 0 && newX < originalImage.Width && newY >= 0 && newY < originalImage.Height)
-                            {
-                                Color pixelColor = ((Bitmap)originalImage).GetPixel(newX, newY);
-                                if (pixelColor.GetBrightness() < 0.5) // Kiểm tra pixel có là điểm sáng hay không
-                                {
-                                    allWhite = false;
-                                    break;
-                                }
-                            }
-                        }
-                        if (!allWhite)
-                            break;
-                    }
-
-                    // Nếu tất cả các pixel lân cận đều là điểm sáng, gán giá trị trắng cho pixel
-                    if (allWhite)
-                    {
-                        erodedImage.SetPixel(x, y, Color.White);
-                    }
-                    else
-                    {
-                        erodedImage.SetPixel(x, y, Color.Black);
-                    }
-                }
-            }
-
-            return erodedImage;
-        }
-
-        private Bitmap PerformDilation(Image originalImage)
-        {
-            // Khởi tạo hình ảnh dilation
-            Bitmap dilatedImage = new Bitmap(originalImage.Width, originalImage.Height);
-
-            // Ma trận kết cấu (structuring element) cho dilation
-            int[,] structuringElement = {
-                { 1, 1, 1 },
-                { 1, 1, 1 },
-                { 1, 1, 1 }
-            };
-
-            // Lặp qua từng pixel trong hình ảnh gốc
-            for (int y = 0; y < originalImage.Height; y++)
-            {
-                for (int x = 0; x < originalImage.Width; x++)
-                {
-                    // Nếu pixel là điểm sáng (trắng)
-                    if (IsBrightPixel(originalImage, x, y))
-                    {
-                        // Duyệt qua cấu trúc kết cấu và gán giá trị trắng cho các pixel kết nối
                         for (int i = -1; i <= 1; i++)
                         {
                             for (int j = -1; j <= 1; j++)
                             {
-                                int newX = x + j;
-                                int newY = y + i;
+                                int newX = x + i;
+                                int newY = y + j;
 
-                                // Đảm bảo không vượt ra khỏi biên của hình ảnh
-                                if (newX >= 0 && newX < originalImage.Width && newY >= 0 && newY < originalImage.Height)
+                                if (newX >= 0 && newX < width && newY >= 0 && newY < height)
                                 {
-                                    // Nếu có kết nối với cấu trúc kết cấu
-                                    if (structuringElement[i + 1, j + 1] == 1)
+                                    if (kernel[i + 1, j + 1] == 1)
                                     {
-                                        dilatedImage.SetPixel(newX, newY, Color.White);
+                                        resultImage.SetPixel(newX, newY, Color.Black);
                                     }
                                 }
                             }
                         }
                     }
+                    else
+                    {
+                        resultImage.SetPixel(x, y, Color.White);
+                    }
+                }
+            }
+            return resultImage;
+        }
+        public static Bitmap Erosion(Bitmap image, int[,] mask)
+        {
+            int width = image.Width;
+            int height = image.Height;
+
+            Bitmap resultImage = new Bitmap(width, height);
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    if (image.GetPixel(x, y).ToArgb() == Color.White.ToArgb())
+                    {
+                        bool shouldErode = true;
+                        for (int i = -1; i <= 1; i++)
+                        {
+                            for (int j = -1; j <= 1; j++)
+                            {
+                                int newX = x + i;
+                                int newY = y + j;
+
+                                if (newX >= 0 && newX < width && newY >= 0 && newY < height)
+                                {
+                                    if (mask[i + 1, j + 1] == 1 && image.GetPixel(newX, newY).ToArgb() == Color.Black.ToArgb())
+                                    {
+                                        shouldErode = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!shouldErode) break;
+                        }
+
+                        if (shouldErode)
+                        {
+                            resultImage.SetPixel(x, y, Color.White);
+                        }
+                        else
+                        {
+                            resultImage.SetPixel(x, y, Color.Black);
+                        }
+                    }
+                    else
+                    {
+                        resultImage.SetPixel(x, y, Color.Black);
+                    }
                 }
             }
 
-            return dilatedImage;
-        }
-
-        private bool IsBrightPixel(Image image, int x, int y)
-        {
-            // Kiểm tra xem pixel có phải là điểm sáng hay không
-            Color pixelColor = ((Bitmap)image).GetPixel(x, y);
-            return pixelColor.GetBrightness() > 0.5; // Kiểm tra độ sáng (0.0 - 1.0), điểm sáng nếu > 0.5
+            return resultImage;
         }
 
     }
