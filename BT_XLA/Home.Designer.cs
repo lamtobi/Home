@@ -47,6 +47,7 @@
             this.biểuĐồHistogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.prewittToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,14 +141,14 @@
             // trungVịToolStripMenuItem
             // 
             this.trungVịToolStripMenuItem.Name = "trungVịToolStripMenuItem";
-            this.trungVịToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.trungVịToolStripMenuItem.Size = new System.Drawing.Size(197, 34);
             this.trungVịToolStripMenuItem.Text = "Trung Vị";
             this.trungVịToolStripMenuItem.Click += new System.EventHandler(this.trungVịToolStripMenuItem_Click);
             // 
             // trungBìnhToolStripMenuItem
             // 
             this.trungBìnhToolStripMenuItem.Name = "trungBìnhToolStripMenuItem";
-            this.trungBìnhToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.trungBìnhToolStripMenuItem.Size = new System.Drawing.Size(197, 34);
             this.trungBìnhToolStripMenuItem.Text = "Trung Bình";
             this.trungBìnhToolStripMenuItem.Click += new System.EventHandler(this.trungBìnhToolStripMenuItem_Click);
             // 
@@ -155,7 +156,8 @@
             // 
             this.phátHiệnBiênToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gradianToolStripMenuItem,
-            this.laplaceToolStripMenuItem});
+            this.laplaceToolStripMenuItem,
+            this.prewittToolStripMenuItem});
             this.phátHiệnBiênToolStripMenuItem.Name = "phátHiệnBiênToolStripMenuItem";
             this.phátHiệnBiênToolStripMenuItem.Size = new System.Drawing.Size(271, 34);
             this.phátHiệnBiênToolStripMenuItem.Text = "Phát Hiện Biên";
@@ -187,6 +189,13 @@
             this.biểuĐồHistogramToolStripMenuItem.Size = new System.Drawing.Size(271, 34);
             this.biểuĐồHistogramToolStripMenuItem.Text = "Chuyển Xám";
             this.biểuĐồHistogramToolStripMenuItem.Click += new System.EventHandler(this.biểuĐồHistogramToolStripMenuItem_Click);
+            // 
+            // prewittToolStripMenuItem
+            // 
+            this.prewittToolStripMenuItem.Name = "prewittToolStripMenuItem";
+            this.prewittToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.prewittToolStripMenuItem.Text = "Prewitt";
+            this.prewittToolStripMenuItem.Click += new System.EventHandler(this.prewittToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -229,5 +238,6 @@
         private System.Windows.Forms.ToolStripMenuItem biểuĐồHistogramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trungVịToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trungBìnhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prewittToolStripMenuItem;
     }
 }

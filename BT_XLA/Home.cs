@@ -87,5 +87,12 @@ namespace BT_XLA
         {
 
         }
+
+        private void prewittToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            prewitt pr=new prewitt(openFileDialog.FileName);
+            pr.MdiParent = this;
+            pr.Show();
+        }
     }
 }
