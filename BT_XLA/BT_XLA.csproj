@@ -99,6 +99,12 @@
     <Compile Include="TachNguong_ThuCong.Designer.cs">
       <DependentUpon>TachNguong_ThuCong.cs</DependentUpon>
     </Compile>
+    <Compile Include="TachNguong_TuDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TachNguong_TuDong.Designer.cs">
+      <DependentUpon>TachNguong_TuDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrungBinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="TachNguong_ThuCong.resx">
       <DependentUpon>TachNguong_ThuCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TachNguong_TuDong.resx">
+      <DependentUpon>TachNguong_TuDong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrungBinh.resx">
       <DependentUpon>TrungBinh.cs</DependentUpon>

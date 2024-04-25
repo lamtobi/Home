@@ -45,7 +45,9 @@ namespace BT_XLA
 
         private void tựĐộngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            TachNguong_TuDong tach = new TachNguong_TuDong(openFileDialog.FileName);
+            tach.MdiParent = this;
+            tach.Show();
         }
 
         private void gradianToolStripMenuItem_Click(object sender, EventArgs e)
