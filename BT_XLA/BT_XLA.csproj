@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clossing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clossing.Designer.cs">
+      <DependentUpon>Clossing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dilation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <Compile Include="TrungVi.Designer.cs">
       <DependentUpon>TrungVi.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Clossing.resx">
+      <DependentUpon>Clossing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dilation.resx">
       <DependentUpon>Dilation.cs</DependentUpon>
     </EmbeddedResource>

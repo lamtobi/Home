@@ -51,9 +51,10 @@
             this.phépToánHìnhTháiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dilationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clossingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             this.toolToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1800, 54);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,7 +77,7 @@
             this.mởFileToolStripMenuItem,
             this.thoátToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 48);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // mởFileToolStripMenuItem
@@ -104,7 +105,7 @@
             this.biênToolStripMenuItem,
             this.phépToánHìnhTháiToolStripMenuItem});
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
-            this.toolToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(61, 48);
             this.toolToolStripMenuItem.Text = "Tool";
             // 
             // tăngGiảmĐộSángToolStripMenuItem
@@ -216,7 +217,7 @@
             // làmMảnhBiênToolStripMenuItem
             // 
             this.làmMảnhBiênToolStripMenuItem.Name = "làmMảnhBiênToolStripMenuItem";
-            this.làmMảnhBiênToolStripMenuItem.Size = new System.Drawing.Size(232, 34);
+            this.làmMảnhBiênToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.làmMảnhBiênToolStripMenuItem.Text = "làm mảnh biên";
             this.làmMảnhBiênToolStripMenuItem.Click += new System.EventHandler(this.làmMảnhBiênToolStripMenuItem_Click);
             // 
@@ -225,7 +226,8 @@
             this.phépToánHìnhTháiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dilationToolStripMenuItem,
             this.erosionToolStripMenuItem,
-            this.openingToolStripMenuItem});
+            this.openingToolStripMenuItem,
+            this.clossingToolStripMenuItem});
             this.phépToánHìnhTháiToolStripMenuItem.Name = "phépToánHìnhTháiToolStripMenuItem";
             this.phépToánHìnhTháiToolStripMenuItem.Size = new System.Drawing.Size(273, 34);
             this.phépToánHìnhTháiToolStripMenuItem.Text = "Phép toán hình thái ";
@@ -250,6 +252,13 @@
             this.openingToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.openingToolStripMenuItem.Text = "Opening";
             this.openingToolStripMenuItem.Click += new System.EventHandler(this.openingToolStripMenuItem_Click);
+            // 
+            // clossingToolStripMenuItem
+            // 
+            this.clossingToolStripMenuItem.Name = "clossingToolStripMenuItem";
+            this.clossingToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.clossingToolStripMenuItem.Text = "Clossing";
+            this.clossingToolStripMenuItem.Click += new System.EventHandler(this.clossingToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -299,5 +308,6 @@
         private System.Windows.Forms.ToolStripMenuItem dilationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem erosionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clossingToolStripMenuItem;
     }
 }
